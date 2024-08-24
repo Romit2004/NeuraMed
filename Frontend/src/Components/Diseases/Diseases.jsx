@@ -24,14 +24,15 @@ const Diseases = () => {
     {
       text: "Heart Disease",
       path: "/heart_disease",
+      desk: "Upload image to predict if you have Heart Disease or not",
       id: 4,
     },
   ];
 
   return (
     <div className='h-full w-full relative flex justify-center mt-12 mb-12'>
-      <div className='h-auto w-[90%] lg:w-[75%] p-4 z-10 flex flex-col relative rounded-2xl border border-neutral-50 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg justify-center items-center shadow-3xl'>
-        <div className='flex flex-col lg:flex-row lg:flex-wrap justify-center items-center w-full'>
+      <div className='h-auto w-[90%] lg:w-[75%] p-4 z-10 flex relative rounded-2xl border border-neutral-50 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg justify-center items-center shadow-3xl'>
+        <div className='flex flex-col lg:flex-row lg:flex-wrap justify-center items-center max-w-96'>
           {diseases &&
             diseases.map((disease) => (
               <div
