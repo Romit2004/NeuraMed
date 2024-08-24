@@ -54,14 +54,7 @@ const SkinCancer = () => {
   };
 
   return (
-    // <div>
-    //   <h2>Skin Cancer Detection</h2>
-    //   <form onSubmit={handleSubmit}>
-    //     <input type="file" onChange={handleFileChange} accept="image/*" />
-    //     <button type="submit">Upload and Predict</button>
-    //   </form>
-    //   {result && <p>{result}</p>}
-    // </div>
+    
     <div className="h-full w-full flex flex-wrap justify-center mt-12 mb-12 px-4">
       {showToaster && <Toaster message="Successfully Uploaded!" />}
       <div
@@ -71,15 +64,7 @@ const SkinCancer = () => {
           Disease Predictor
         </h1>
 
-        {/* <input
-                className="flex h-10 w-full md:w-[50vw] rounded-md border border-white bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 mb-2"
-                type="file"
-            
-                multiple
-                onChange={onFileChange} 
-                accept="image/*"
-                ref={inputRef}
-            /> */}
+       
         <div class="flex items-center justify-center w-full bg-white bg-opacity-10 mb-6">
           <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white bg-opacity-10  dark:border-white dark:hover:border-gray-500 hover:bg-white hover:bg-opacity-5">
             <div class="flex flex-col items-center justify-center pt-5 pb-6">
