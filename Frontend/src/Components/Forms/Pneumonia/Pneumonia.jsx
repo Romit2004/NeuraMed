@@ -1,6 +1,6 @@
 import React, { useState, useEffect,useRef } from 'react';
-import Buttonpink from '../Buttons/Buttonpink';
-import Toaster from '../Toaster/Toaster';
+import Buttonpink from '../../Buttons/Buttonpink';
+import Toaster from '../../Toaster/Toaster';
 import axios from 'axios';
 
 const Pneumonia = () => {
