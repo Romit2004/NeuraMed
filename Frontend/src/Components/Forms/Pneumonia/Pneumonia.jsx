@@ -68,15 +68,7 @@ const Pneumonia = () => {
                     Disease Predictor
                 </h1>
 
-                {/* <input
-                        className="flex h-10 w-full md:w-[50vw] rounded-md border border-white bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 mb-2"
-                        type="file"
-                    
-                        multiple
-                        onChange={onFileChange} 
-                        accept="image/*"
-                        ref={inputRef}
-                    /> */}
+                
                 <div class="flex items-center justify-center w-full bg-white bg-opacity-10 mb-6">
                     <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white bg-opacity-10  dark:border-white dark:hover:border-gray-500 hover:bg-white hover:bg-opacity-5">
                         <div class="flex flex-col items-center justify-center pt-5 pb-6">
@@ -94,7 +86,7 @@ const Pneumonia = () => {
                 </div>
                 <div>
                     <Buttonpink children={"Submit"} type={"Submit"} classname={'py-3 px-4'} onClick={onFileUpload} />
-                    {/* <button onClick={onFileUpload}>Upload and Predict</button> */}
+                    
 
                 </div>
 
@@ -128,7 +120,7 @@ const Pneumonia = () => {
                 {prediction && (
                     <div>
                         <h1>Prediction: {prediction.prediction}</h1>
-                        <p>Confidence: {prediction.confidence.toFixed(2)}</p>
+                    
                     </div>
                 )}
             </div>
