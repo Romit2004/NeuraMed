@@ -32,7 +32,10 @@ const Diseases = () => {
                 className="flex justify-center lg:justify-between w-full lg:w-auto ml-1 mr-2 lg:mr-8 mt-2 lg:mt-4"
               >
                 <Link to={disease.path}>
-                  <Buttonpink children={disease.text} type={"text"} />
+                <div className="mt-2 mb-2">
+                <Buttonpink children={disease.text} type={"text"} />
+
+                </div>
                 </Link>
               </div>
             ))}
