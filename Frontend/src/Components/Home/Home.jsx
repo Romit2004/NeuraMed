@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import Diseases from '../Diseases/Diseases';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 //import Diseases from '../Diseases/Diseases';
@@ -94,7 +94,7 @@ const Home = () => {
       data-aos="zoom-in"
     
       >
-    {/* <Diseases /> */}
+    <Diseases />
       </div>
 
  
