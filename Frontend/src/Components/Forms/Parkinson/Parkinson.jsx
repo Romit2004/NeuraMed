@@ -85,11 +85,11 @@ function Parkinson() {
         <h1 className="text-3xl font-extrabold text-center text-white mb-5">
           Disease Predictor
         </h1>
-        <form className="flex flex-wrap max-w-5xl justify-center gap-4">
-          {fea.map((featureName, index) => (
-            <div className="mb-5 flex flex-col max-w-40 min-h-10 justify-between" key={index}>
+        <form className="flex flex-wrap max-w-5xl justify-center gap-5">
+          {features.map((feature, index) => (
+            <div className="mb-5 flex flex-col w-[25%] min-h-10 justify-between" key={index}>
               <label className="text-white font-extrabold mb-2">
-                {featureName}
+                {fea[index]}
               </label>
               <input
                 type="number"
@@ -97,9 +97,9 @@ function Parkinson() {
                 min="0"
                 className="px-2 bg-white bg-opacity-30 focus:bg-opacity-75 outline-white outline rounded-sm hover:outline-gray-500"
                 id={`feature-${index}`}
-                title={descriptions[featureName]} 
+                title={descriptions[fea[index]]} 
                 required
-                value={features[index]}
+                value={feature}
                 onChange={(e) => handleInputChange(index, e.target.value)}
               />
             </div>
