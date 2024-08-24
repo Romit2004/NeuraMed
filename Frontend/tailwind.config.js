@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       boxShadow: {
-        '3xl': '-15px 17px 17px rgba(10,10,10,0.25)'
+        '3xl': '-15px 17px 17px rgba(0,0,0,0.25)'
       },
     },
   },

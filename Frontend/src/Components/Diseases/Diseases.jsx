@@ -20,6 +20,11 @@ const Diseases = () => {
       path: "/parkinson",
       id: 3,
     },
+    {
+      text: "Heart Disease",
+      path: "/heart_disease",
+      id: 4,
+    },
   ];
   return (
     <div className="h-full w-full relative flex justify-center mt-12 mb-12">

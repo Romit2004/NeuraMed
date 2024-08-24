@@ -109,5 +109,40 @@ def upload_file():
     else:
         return jsonify({"error": "Invalid file type"}), 400
 
+
+model_heart_disease = joblib.load('../models/heart_disease_model.pkl')
+
+@app.route('/heart_disease', methods=['POST'])
+def predict_heart():
+    data = request.json.get('data')
+    
+    
+    input_data = np.array([
+        data['age'],
+        data['sex'],
+        data['cp'],
+        data['trestbps'],
+        data['chol'],
+        data['fbs'],
+        data['restecg'],
+        data['thalach'],
+        data['exang'],
+        data['oldpeak'],
+        data['slope'],
+        data['ca'],
+        data['thal']
+    ])
+
+    
+    input_data_reshaped = input_data.reshape(1, -1)
+    
+    
+    prediction = model_heart_disease.predict(input_data_reshaped)
+    
+    
+    result = 'The person has heart disease' if prediction[0] == 1 else 'The person does not have heart disease'
+    return jsonify({'prediction': result})
+
+
 if __name__ == "__main__":
     app.run(debug=True)
