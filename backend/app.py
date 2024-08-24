@@ -108,6 +108,21 @@ def upload_file():
         return jsonify({"prediction": predicted_label, "confidence": float(prediction[0][0])}), 200
     else:
         return jsonify({"error": "Invalid file type"}), 400
+    
+model = joblib.load('../models/heart_disease_model.pkl')
+scaler = joblib.load('../models/scaler.pkl')
+
+@app.route('/heart_disease', methods=['POST'])
+def predict():
+    try:
+        data = request.json
+        input_data = np.array(data['features']).reshape(1, -1)
+        std_data = scaler.transform(input_data)
+        prediction = model.predict(std_data)
+        result = "The Person has Heart Disease" if prediction[0] == 1 else "The Person does not have Heart Disease"
+        return jsonify({"prediction": result})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
 
 
 model_heart_disease = joblib.load('../models/heart_disease_model.pkl')
