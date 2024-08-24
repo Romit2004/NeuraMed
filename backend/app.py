@@ -139,6 +139,5 @@ def predict_heart():
     result = 'The person has heart disease' if prediction[0] == 1 else 'The person does not have heart disease'
     return jsonify({'prediction': result})
 
-
 if __name__ == "__main__":
     app.run(debug=True)
