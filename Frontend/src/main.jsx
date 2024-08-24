@@ -11,8 +11,7 @@ import {
 import Home from "./Components/Home/Home.jsx";
 import Layout from "./Layout.jsx";
 import Diseases from "./Components/Diseases/Diseases.jsx";
-import Pneumonia from "./Components/Forms/Pneumonia.jsx";
-import Parkinson from "./Components/Forms/Parkinson.jsx";
+import Pneumonia from "./Components/Forms/Pneumonia/Pneumonia.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
