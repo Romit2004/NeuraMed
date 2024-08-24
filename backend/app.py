@@ -19,12 +19,12 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# interpreter = tf.lite.Interpreter(model_path="../models/efficientnetb3-Skin Cancer-89.85.tflite")
-# interpreter.allocate_tensors()
-# input_details = interpreter.get_input_details()
-# output_details = interpreter.get_output_details()
+interpreter = tf.lite.Interpreter(model_path="../models/efficientnetb3-Skin Cancer-89.85.tflite")
+interpreter.allocate_tensors()
+input_details = interpreter.get_input_details()
+output_details = interpreter.get_output_details()
 
-# class_labels = {0: 'benign', 1: 'malignant'}
+class_labels = {0: 'benign', 1: 'malignant'}
 
 model_pneumonia = tf.keras.models.load_model('../models/pneumonia_detection_model.h5')
 
@@ -38,22 +38,22 @@ def prepare_image(filepath):
     resized_img = resized_img.reshape(-1, img_size, img_size, 1) / 255.0
     return resized_img
 
-# def preprocess_image_skin_cancer(image_path):
-#     img = Image.open(image_path).resize((224, 224))
-#     img_array = np.array(img)
-#     img_array = preprocess_input(img_array)
-#     img_array = np.expand_dims(img_array, axis=0)
-#     img_array = img_array.astype(np.float32)
-#     return img_array
+def preprocess_image_skin_cancer(image_path):
+    img = Image.open(image_path).resize((224, 224))
+    img_array = np.array(img)
+    img_array = preprocess_input(img_array)
+    img_array = np.expand_dims(img_array, axis=0)
+    img_array = img_array.astype(np.float32)
+    return img_array
 
-# def infer_skin_cancer(image_path):
-#     input_data = preprocess_image_skin_cancer(image_path)
-#     interpreter.set_tensor(input_details[0]['index'], input_data)
-#     interpreter.invoke()
-#     output_data = interpreter.get_tensor(output_details[0]['index'])
-#     prediction = np.argmax(output_data)
-#     label = class_labels.get(prediction, 'unknown')
-#     return label
+def infer_skin_cancer(image_path):
+    input_data = preprocess_image_skin_cancer(image_path)
+    interpreter.set_tensor(input_details[0]['index'], input_data)
+    interpreter.invoke()
+    output_data = interpreter.get_tensor(output_details[0]['index'])
+    prediction = np.argmax(output_data)
+    label = class_labels.get(prediction, 'unknown')
+    return label
 
 model = joblib.load('../models/parkinsons_model.pkl')
 scaler = joblib.load('../models/scaler.pkl')
@@ -70,23 +70,23 @@ def predict():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
-# @app.route('/skin_cancer', methods=['POST'])
-# def upload_file_skin_cancer():
-#     if 'file' not in request.files:
-#         return jsonify({"error": "No file part"}), 400
+@app.route('/skin_cancer', methods=['POST'])
+def upload_file_skin_cancer():
+    if 'file' not in request.files:
+        return jsonify({"error": "No file part"}), 400
     
-#     file = request.files['file']
+    file = request.files['file']
     
-#     if file and allowed_file(file.filename):
-#         filename = secure_filename(file.filename)
-#         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-#         file.save(filepath)
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(filepath)
 
-#         result = infer_skin_cancer(filepath)
+        result = infer_skin_cancer(filepath)
 
-#         return jsonify({"prediction": result}), 200
-#     else:
-#         return jsonify({"error": "Invalid file type"}), 400
+        return jsonify({"prediction": result}), 200
+    else:
+        return jsonify({"error": "Invalid file type"}), 400
 
 @app.route('/pneumonia', methods=['POST'])
 def upload_file():

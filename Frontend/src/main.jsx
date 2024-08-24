@@ -13,6 +13,7 @@ import Layout from "./Layout.jsx";
 import Diseases from "./Components/Diseases/Diseases.jsx";
 import Pneumonia from "./Components/Forms/Pneumonia/Pneumonia.jsx";
 import Parkinson from "./Components/Forms/Parkinson/Parkinson.jsx"
+import SkinCancer from "./Components/SkinCancer/SkinCancer.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
       <Route path="/diseases" element={<Diseases />} />
       <Route path="/pneumonia" element={<Pneumonia />} />
       <Route path="/parkinson" element={<Parkinson />} />
+      <Route path="/skin_cancer" element={<SkinCancer />} />
     </Route>
   )
 );
