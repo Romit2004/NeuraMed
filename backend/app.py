@@ -61,17 +61,10 @@ scaler = joblib.load('../models/scaler.pkl')
 @app.route('/parkinson', methods=['POST'])
 def predict():
     try:
-        # Extract features from the POST request
         data = request.json
         input_data = np.array(data['features']).reshape(1, -1)
-
-        # Standardize the input data
         std_data = scaler.transform(input_data)
-
-        # Make prediction using the loaded model
         prediction = model.predict(std_data)
-
-        # Return the result as a JSON response
         result = "The Person has Parkinson's Disease" if prediction[0] == 1 else "The Person does not have Parkinson's Disease"
         return jsonify({"prediction": result})
     except Exception as e:
