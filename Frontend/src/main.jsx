@@ -10,13 +10,17 @@ import {
 } from "react-router-dom";
 import Home from "./Components/Home/Home.jsx";
 import Layout from "./Layout.jsx";
+import Diseases from "./Components/Diseases/Diseases.jsx";
+import Pneumonia from "./Components/Forms/Pneumonia/Pneumonia.jsx";
+import Parkinson from "./Components/Forms/Parkinson/Parkinson.jsx"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<Home />} />
-      
-
+      <Route path="/diseases" element={<Diseases />} />
+      <Route path="/pneumonia" element={<Pneumonia />} />
+      <Route path="/parkinson" element={<Parkinson />} />
     </Route>
   )
 );
