@@ -32,7 +32,7 @@ const Diseases = () => {
   return (
     <div className='h-full w-full relative flex justify-center mt-12 mb-12'>
       <div className='h-auto w-[90%] lg:w-[75%] p-4 z-10 flex relative rounded-2xl border border-neutral-50 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg justify-center items-center shadow-3xl'>
-        <div className='flex flex-col lg:flex-row lg:flex-wrap justify-center items-center max-w-96'>
+        <div className='justify-center items-center'>
           {diseases &&
             diseases.map((disease) => (
               <div
