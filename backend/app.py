@@ -1,14 +1,14 @@
 import json
-from flask import Flask, request, jsonify ,Response
-from flask_cors import CORS
+from flask import Flask, request, jsonify, Response # type: ignore
+from flask_cors import CORS # type: ignore
 import os
-from werkzeug.utils import secure_filename
-import numpy as np
-import tensorflow as tf
-from PIL import Image
-from tensorflow.keras.applications.efficientnet import preprocess_input
-import cv2
-import joblib
+from werkzeug.utils import secure_filename # type: ignore
+import numpy as np # type: ignore
+import tensorflow as tf # type: ignore
+from PIL import Image # type: ignore
+from tensorflow.keras.applications.efficientnet import preprocess_input # type: ignore
+import cv2 # type: ignore
+import joblib # type: ignore
 
 app = Flask(__name__)
 CORS(app)
@@ -39,10 +39,10 @@ def prepare_image(filepath):
     return resized_img
 
 def preprocess_image_skin_cancer(image_path):
-    img = Image.open(image_path).resize((224, 224))
-    img_array = np.array(img)
-    img_array = preprocess_input(img_array)
-    img_array = np.expand_dims(img_array, axis=0)
+    img = Image.open(image_path).resize((224, 224)) 
+    img_array = np.array(img) 
+    img_array = preprocess_input(img_array)  
+    img_array = np.expand_dims(img_array, axis=0) 
     img_array = img_array.astype(np.float32)
     return img_array
 
@@ -109,65 +109,5 @@ def upload_file():
     else:
         return jsonify({"error": "Invalid file type"}), 400
 
-MODEL_API_URL = "http://localhost:11434/api/generate"
-HEADERS = {"Content-Type": "application/json"}
-
-chat_history = []
-
-def construct_prompt(history):
-    """Construct a prompt string from chat history."""
-    prompt = ""
-    for entry in history:
-        role = "User" if entry["role"] == "user" else "Model"
-        prompt += f"{role}: {entry['content']}\n"
-    prompt += "Model: "
-    return prompt
-
-@app.route('/chat', methods=['POST'])
-def chat():
-    global chat_history
-    data = request.json
-    print("Received request data:", data)
-
-    prompt = data.get("message")
-    stream = data.get("stream", False)
-
-    if not prompt:
-        return jsonify({"error": "No message provided"}), 400
-
-    chat_history.append({"role": "user", "content": prompt})
-
-    model_prompt = construct_prompt(chat_history)
-    model_data = {
-        "model": "medllama2:7b-q4_K_M",
-        "prompt": model_prompt,
-        "stream": stream
-    }
-    print("Sending data to model API:", model_data)
-
-    def generate():
-        try:
-            response = request.post(MODEL_API_URL, headers=HEADERS, data=json.dumps(model_data), stream=True)
-
-            if response.status_code == 200:
-                accumulated_response = ""
-                for chunk in response.iter_lines():
-                    if chunk:
-                        chunk_data = json.loads(chunk.decode('utf-8'))
-                        response_text = chunk_data.get("response", "")
-                        if response_text:
-                            accumulated_response += response_text
-                            yield response_text
-                chat_history.append({"role": "model", "content": accumulated_response})
-            else:
-                yield f"Error: {response.text}"
-        except request.RequestException as e:
-            yield f"Request failed: {str(e)}"
-    return Response(generate(), content_type='text/plain;charset=utf-8')
-
-@app.route('/history', methods=['GET'])
-def get_history():
-    return jsonify({"history": chat_history})
-
-if(__name__)=="__main__":
+if __name__ == "__main__":
     app.run(debug=True)
