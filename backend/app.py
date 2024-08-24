@@ -1,5 +1,5 @@
 import json
-from flask import Flask, request, jsonify ,Response
+from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
 import os
 from werkzeug.utils import secure_filename
@@ -42,18 +42,28 @@ def preprocess_image_skin_cancer(image_path):
     img = Image.open(image_path).resize((224, 224))
     img_array = np.array(img)
     img_array = preprocess_input(img_array)
+
+    # Ensure input tensor has 4 dimensions (batch size, height, width, channels)
     img_array = np.expand_dims(img_array, axis=0)
     img_array = img_array.astype(np.float32)
     return img_array
 
 def infer_skin_cancer(image_path):
     input_data = preprocess_image_skin_cancer(image_path)
-    interpreter.set_tensor(input_details[0]['index'], input_data)
-    interpreter.invoke()
-    output_data = interpreter.get_tensor(output_details[0]['index'])
-    prediction = np.argmax(output_data)
-    label = class_labels.get(prediction, 'unknown')
-    return label
+
+    # Debugging: Check the shape of the input data
+    print(f"Input data shape: {input_data.shape}")
+
+    try:
+        interpreter.set_tensor(input_details[0]['index'], input_data)
+        interpreter.invoke()
+        output_data = interpreter.get_tensor(output_details[0]['index'])
+        prediction = np.argmax(output_data)
+        label = class_labels.get(prediction, 'unknown')
+        return label
+    except Exception as e:
+        print(f"Error during inference: {str(e)}")
+        return "Error during inference"
 
 model = joblib.load('../models/parkinsons_model.pkl')
 scaler = joblib.load('../models/scaler.pkl')
@@ -169,5 +179,5 @@ def chat():
 def get_history():
     return jsonify({"history": chat_history})
 
-if(__name__)=="__main__":
+if __name__ == "__main__":
     app.run(debug=True)
