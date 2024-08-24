@@ -37,7 +37,7 @@ const Chatbot = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/chat", {
+      const response = await fetch("http://localhost:5001/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -96,7 +96,7 @@ const Chatbot = () => {
               <IoIosCloseCircle className="text-3xl" />
             </button>
           </div>
-          <div className="flex-1 overflow-y-auto mb-2">
+          <div className="flex-1 overflow-y-auto mb-2 focus:scroll-auto">
             {messages.length > 0 ? (
               messages.map((msg, index) => (
                 <div
