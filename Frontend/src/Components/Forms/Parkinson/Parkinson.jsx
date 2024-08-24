@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Buttonpink from "../Buttons/Buttonpink";
+import Buttonpink from "../../Buttons/Buttonpink";
 
 function Parkinson() {
   const [features, setFeatures] = useState(Array(22).fill(""));
