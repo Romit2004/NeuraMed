@@ -4,7 +4,6 @@ import Toaster from '../../Toaster/Toaster';
 import axios from 'axios';
 
 const Pneumonia = () => {
-    // const [files, setFiles] = useState([]);
     const [previews, setPreviews] = useState(null);
     const [showToaster, setShowToaster] = useState(false);
     const inputRef = useRef(null)
@@ -119,8 +118,8 @@ const Pneumonia = () => {
             >
                 {prediction && (
                     <div>
-                        <h1>Prediction: {prediction.prediction}</h1>
-                        <p>Confidence: {prediction.confidence.toFixed(2)}</p>
+                         <h2 className="text-2xl font-extrabold text-center text-white mb-5">Prediction: {prediction.prediction}</h2>
+                        
                     </div>
                 )}
             </div>

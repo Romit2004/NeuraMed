@@ -113,7 +113,7 @@ function Parkinson() {
         />
       </div>
       <div className="h-24 w-[75%] p-[20px] my-4 z-10 rounded-2xl border border-neutral-50 bg-white bg-opacity-30 backdrop-filter backdrop-blur-lg justify-center items-center shadow-3xl">
-        {result && <h2>{result}</h2>}
+        {result &&  <h2 className="text-3xl font-extrabold text-center text-white mb-5"></h2>}
       </div>
     </div>
   );
