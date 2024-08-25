@@ -6,7 +6,7 @@ const Toaster = ({ message, type = "success", duration = 3000, onClose }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setVisible(false);
-            if (onClose) onClose(); // Notify the parent to close the toaster
+            if (onClose) onClose(); 
         }, duration);
 
         return () => clearTimeout(timer);

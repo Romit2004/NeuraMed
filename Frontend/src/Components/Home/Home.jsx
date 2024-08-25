@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Diseases from '../Diseases/Diseases';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { Link } from 'react-router-dom';
 
 
 
@@ -21,19 +22,21 @@ const Home = () => {
         <div className="flex flex-col justify-center px-4 py-12 md:py-16 lg:col-span-7 lg:gap-x-6 lg:px-6 lg:py-24 xl:col-span-6">
          
           <h1 className="mt-8 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-6xl">
-            People who care about your growth
+            Live a Healthy Life
           </h1>
           <p className="mt-8 text-lg text-white">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur modi blanditiis
-            dolores quasi eaque explicabo!
+          Uses historical and real-time data to forecast diseases for timely intervention and treatment.
           </p>
           
+          <Link to="/diseases"className="flex items-center justify-center rounded-md bg-white bg-opacity-10 border-white border-2 mt-6 px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-opacity-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+           >
           <button
             type="button"
-            className="rounded-md bg-white bg-opacity-10 border-white border-2 mt-6 px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-opacity-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="text-white hover:text-white transition duration-150 ease-in-out"
           >
-            Search
+            Predict
           </button>
+          </Link>
         </div>
         
         <div className='h-[60vh] w-60  flex justify-center items-center translate-x-32'>
