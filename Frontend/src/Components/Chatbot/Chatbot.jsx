@@ -52,13 +52,11 @@ const Chatbot = () => {
       const modelMessage = { role: "model", content: "" };
       setMessages((prevMessages) => [...prevMessages, modelMessage]);
 
-      // Stream the response
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
         responseText += decoder.decode(value, { stream: true });
 
-        // Update the latest model message
         setMessages((prevMessages) => {
           const updatedMessages = [...prevMessages];
           updatedMessages[updatedMessages.length - 1] = {
