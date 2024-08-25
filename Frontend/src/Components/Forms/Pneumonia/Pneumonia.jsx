@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Toaster from '../../Toaster/Toaster';
 import axios from 'axios';
-
+import Buttonpink from '../../Buttons/Buttonpink';
 const Pneumonia = () => {
     const [previews, setPreviews] = useState(null);
     const [showToaster, setShowToaster] = useState(false);
@@ -74,10 +74,11 @@ const Pneumonia = () => {
                 </div>
 
                 <div>
-                    <button className="btn py-3 px-4" onClick={onFileUpload}>
+                    {/* <button className="btn py-3 px-4" onClick={onFileUpload}>
                         Submit
-                    </button>
-                </div>
+                    </button> */}
+                    <Buttonpink children="Submit" type="submit" onClick={onFileUpload}/>                
+                    </div>
 
                 <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center mt-6">
                     {previews && (

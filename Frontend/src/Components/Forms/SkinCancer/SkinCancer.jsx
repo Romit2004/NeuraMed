@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import Toaster from '../../Toaster/Toaster';
+import Buttonpink from '../../Buttons/Buttonpink';
+
 
 const SkinCancer = () => {
   const [file, setFile] = useState(null);
@@ -77,9 +79,10 @@ const SkinCancer = () => {
         </div>
 
         <div>
-          <button onClick={handleSubmit} className="py-3 px-4 bg-pink-500 text-white rounded-lg hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-400">
+          {/* <button onClick={handleSubmit} className="py-3 px-4 bg-pink-500 text-white rounded-lg hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-400">
             Submit
-          </button>
+          </button> */}
+          <Buttonpink children="Submit" type="submit" onClick={handleSubmit}/>
         </div>
 
         <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center mt-6">
@@ -101,7 +104,7 @@ const SkinCancer = () => {
             >
               ✕
             </button>
-            <h2 className="text-2xl font-bold text-center">
+            <h2 className="text-2xl font-bold text-center text-black">
               {result}
             </h2>
           </div>
