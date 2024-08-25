@@ -83,7 +83,7 @@ function Parkinson() {
     <div className="h-full w-full flex flex-wrap justify-center mt-12 mb-12 px-4">
       <div className="min-h-[86vh] h-full w-full max-w-5xl p-6 z-10 flex flex-col rounded-2xl border border-neutral-50 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg justify-center items-center shadow-3xl">
         <h1 className="text-3xl font-extrabold text-center text-white mb-5">
-          Disease Predictor
+          Parkinson's Disease Predictor
         </h1>
         <form className="flex flex-wrap max-w-5xl justify-center gap-5">
           {features.map((feature, index) => (
