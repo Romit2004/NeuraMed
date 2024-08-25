@@ -34,7 +34,7 @@ const Home = () => {
             type="button"
             className="text-white hover:text-white transition duration-150 ease-in-out"
           >
-            Predict
+            Use our Prediction Models
           </button>
           </Link>
         </div>
