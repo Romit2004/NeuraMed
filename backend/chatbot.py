@@ -12,7 +12,6 @@ HEADERS = {"Content-Type": "application/json"}
 chat_history = []
 
 def construct_prompt(history):
-    """Construct a prompt string from chat history."""
     prompt = ""
     for entry in history:
         role = "User" if entry["role"] == "user" else "Model"
