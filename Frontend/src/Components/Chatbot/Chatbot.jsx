@@ -113,7 +113,7 @@ const Chatbot = () => {
           <div className="mt-2 flex items-center">
             <input
               type="text"
-              className="w-full p-2 border bg-slate-300 border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-2 border text-black bg-slate-300 border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder={
                 isLoading ? "Generating response..." : "Enter your message"
               }
