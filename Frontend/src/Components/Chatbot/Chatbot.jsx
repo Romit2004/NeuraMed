@@ -86,7 +86,7 @@ const Chatbot = () => {
       {isChatOpen && (
         <div className="fixed bottom-0 right-0 z-50 bg-white shadow-lg p-4 w-full h-full md:w-full md:h-full lg:w-1/2 lg:h-full flex flex-col">
           <div className="flex justify-between items-center mb-2">
-            <h2 className="text-lg font-bold">Chat with us</h2>
+            <h2 className="text-lg text-black font-bold">Chat with us</h2>
             <button
               onClick={toggleChatWindow}
               className="text-gray-400 hover:text-gray-600"
@@ -100,20 +100,20 @@ const Chatbot = () => {
                 <div
                   key={index}
                   className={`p-2 rounded-lg mb-2 text-sm ${
-                    msg.role === "user" ? "bg-blue-100" : "bg-gray-100"
+                    msg.role === "user" ? "bg-blue-300 text-black" : "bg-gray-100 text-black"
                   }`}
                 >
                   {msg.content}
                 </div>
               ))
             ) : (
-              <p className="text-gray-500">No messages yet.</p>
+              <p className="text-black">No messages yet.</p>
             )}
           </div>
           <div className="mt-2 flex items-center">
             <input
               type="text"
-              className="w-full p-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-2 border bg-slate-300 border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder={
                 isLoading ? "Generating response..." : "Enter your message"
               }
