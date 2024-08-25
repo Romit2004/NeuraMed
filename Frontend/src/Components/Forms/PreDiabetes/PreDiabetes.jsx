@@ -126,8 +126,16 @@ function PreDiabetes() {
                                 </button>
                             </form>
                             <h2 className='text-3xl font-extrabold text-center text-white mb-5'>
-                                {result === "Diabetic" ? "Pre-Diabetic" : "Non-Pre-Diabetic"}
+                                {result === "Diabetic" ? "Pre-Diabetic" 
+                            
+                                : "Non-Pre-Diabetic"}
+
                             </h2>
+                            <p>
+                            {result === "Diabetic"? "You must focus on a diet rich in whole grains, vegetables, lean proteins, and healthy fats. Limit sugary foods and refined carbs. Exercise regularly, maintain a healthy weight, and monitor blood sugar levels. Avoid smoking and manage stress to prevent progression to diabetes." 
+                            
+                            : "Since you are non-pre-diabetic, you can enjoy a balanced diet rich in fruits, vegetables, whole grains, lean proteins, and healthy fats. It's essential to stay active and maintain a healthy weight. Regular exercise, moderate sugar intake, and staying hydrated are key to overall wellness without strict dietary restrictions."}
+                            </p>
                         </div>
                     </dialog>
                 )}
