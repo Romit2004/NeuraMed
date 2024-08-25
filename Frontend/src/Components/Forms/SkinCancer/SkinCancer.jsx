@@ -62,7 +62,7 @@ const SkinCancer = () => {
         className="min-h-[86vh] h-full w-full max-w-5xl p-6 z-10 flex flex-col rounded-2xl border border-neutral-50 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg justify-center items-center shadow-3xl"
       >
         <h1 className="text-3xl font-extrabold text-center text-white mb-5">
-          Disease Predictor
+          Skin Cancer Predictor
         </h1>
 
         <div className="flex items-center justify-center w-full bg-white bg-opacity-10 mb-6">
