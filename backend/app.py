@@ -140,10 +140,9 @@ def predict_heart():
     result = 'The person has heart disease' if prediction[0] == 1 else 'The person does not have heart disease'
     return jsonify({'prediction': result})
 
-# Load the trained model
 model = joblib.load('../models/decision_tree_model.pkl')
 
-# Define the feature columns
+
 feature_columns = ['age', 'gender', 'polyuria', 'polydipsia', 'sudden_weight_loss',
                    'weakness', 'polyphagia', 'genital_thrush', 'visual_blurring',
                    'itching', 'irritability', 'delayed_healing', 'partial_paresis',
