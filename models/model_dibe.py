@@ -13,7 +13,7 @@ xfeatures = data.drop(columns=['label'], axis=1)
 ylabels = data['label']  # corrected yfeatures -> ylabels
 
 # Feature selection using chi-squared test
-skb = SelectKBest(score_func=chi2, k=12)
+skb = SelectKBest(score_func=chi2, k=16)
 xfeatures_best = skb.fit_transform(xfeatures, ylabels)
 
 # Get the names of the selected features

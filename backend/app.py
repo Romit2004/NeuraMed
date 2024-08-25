@@ -9,6 +9,7 @@ from PIL import Image
 from tensorflow.keras.applications.efficientnet import preprocess_input
 import cv2
 import joblib
+import pandas as pd
 
 app = Flask(__name__)
 CORS(app)
@@ -138,6 +139,23 @@ def predict_heart():
 
     result = 'The person has heart disease' if prediction[0] == 1 else 'The person does not have heart disease'
     return jsonify({'prediction': result})
+
+# Load the trained model
+model = joblib.load('../models/decision_tree_model.pkl')
+
+# Define the feature columns
+feature_columns = ['age', 'gender', 'polyuria', 'polydipsia', 'sudden_weight_loss',
+                   'weakness', 'polyphagia', 'genital_thrush', 'visual_blurring',
+                   'itching', 'irritability', 'delayed_healing', 'partial_paresis',
+                   'muscle_stiffness', 'alopecia', 'obesity']
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.json
+    input_data = pd.DataFrame([data], columns=feature_columns)
+    prediction = model.predict(input_data)[0]
+    result = "Diabetic" if prediction == 1 else "Not Diabetic"
+    return jsonify({"prediction": result})
 
 if __name__ == "__main__":
     app.run(debug=True)

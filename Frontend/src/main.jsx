@@ -15,6 +15,7 @@ import Pneumonia from "./Components/Forms/Pneumonia/Pneumonia.jsx";
 import Parkinson from "./Components/Forms/Parkinson/Parkinson.jsx"
 import SkinCancer from "./Components/Forms/SkinCancer/SkinCancer.jsx";
 import HeartDisease from "./Components/Forms/HeartDisease/HeartDisease.jsx";
+import PreDiabetes from "./Components/Forms/PreDiabetes/PreDiabetes.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
       <Route path="/parkinson" element={<Parkinson />} />
       <Route path="/skin_cancer" element={<SkinCancer />} />
       <Route path="/heart_disease" element={<HeartDisease />} />
+      <Route path="/pre_diab" element={<PreDiabetes />} />
     </Route>
   )
 );

@@ -27,6 +27,12 @@ const Diseases = () => {
       desk: "Upload image to predict if you have Heart Disease or not",
       id: 4,
     },
+    {
+      text: "Pre Diabetes",
+      path: "/pre_diab",
+      desk: "Upload image to predict if you have Diabetes or not",
+      id: 4,
+    },
   ];
 
   return (
@@ -37,7 +43,7 @@ const Diseases = () => {
             diseases.map((disease) => (
               <div
                 key={disease.id}
-                className='flex justify-center lg:justify-between lg:w-auto ml-1 mr-2 lg:mr-8 mt-2 lg:mt-4 card bg-white bg-opacity-5 text-primary-content w-auto border-white border-2 hover:border-4 transition-all hover:ease-in-out hover:duration-100'
+                className='flex justify-center lg:justify-between lg:w-auto ml-1 mr-2 lg:mr-8 mt-2 lg:mt-4 card bg-white bg-opacity-5 text-primary-content w-auto border-white border-2 hover:border-4 transition-all hover:ease-in-out hover:duration-100 shadow-3xl'
               >
                 <div className='card-body'>
                   <h2 className='card-title'>{disease.text}</h2>
